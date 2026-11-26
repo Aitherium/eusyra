@@ -1,0 +1,198 @@
+/* Eusyra — World Studio Pro setup page. Builds on site.css tokens only. */
+
+.pro-intro {
+  position: relative;
+  padding-block: 168px clamp(56px, 8vw, 96px);
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.pro-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(55% 70% at 82% 18%, rgba(42, 215, 215, 0.07), transparent 70%);
+  pointer-events: none;
+}
+
+.pro-intro h1 {
+  margin-top: 26px;
+  max-width: 16ch;
+  font-size: clamp(40px, 6.4vw, 88px);
+  font-weight: 200;
+  line-height: 0.98;
+  letter-spacing: -0.042em;
+}
+
+.pro-sub {
+  margin-top: 26px;
+  max-width: 56ch;
+  color: #c4d0d4;
+  font-size: clamp(16px, 1.45vw, 18px);
+  line-height: 1.65;
+}
+
+/* post-checkout banner */
+
+.pro-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-left: 1px solid var(--ice);
+  background: rgba(10, 20, 28, 0.72);
+  max-width: 640px;
+}
+
+.pro-banner[hidden] { display: none; }
+
+.pro-banner p {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.pro-banner strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.pro-banner-mark {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--ice);
+  transform: rotate(45deg);
+}
+
+/* plan summary */
+
+.pro-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 44px 0 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.pro-facts div {
+  padding: 18px 20px 0 0;
+}
+
+.pro-facts div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--line-soft);
+}
+
+.pro-facts dt {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.pro-facts dd {
+  margin: 8px 0 0;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* steps */
+
+.pro-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pro-steps .format-link { margin-top: 16px; }
+
+.pro-step-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 28px;
+}
+
+.pro-quiet { color: var(--muted); transition: color 0.25s ease; }
+
+.pro-quiet:hover,
+.pro-quiet:focus-visible { color: var(--ice); }
+
+/* launch */
+
+.pro-launch-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+
+.pro-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.pro-links li { border-bottom: 1px solid var(--line-soft); }
+
+.pro-links a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 18px;
+  align-items: baseline;
+  gap: 18px;
+  padding: 20px 4px;
+  transition: background 0.3s ease;
+}
+
+.pro-links a:hover,
+.pro-links a:focus-visible { background: rgba(42, 215, 215, 0.03); }
+
+.pro-links-label {
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.pro-links-host {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+}
+
+.pro-links .arrow {
+  color: var(--muted);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.pro-links a:hover .arrow,
+.pro-links a:focus-visible .arrow {
+  color: var(--ice);
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .pro-launch-grid { grid-template-columns: 1fr; }
+  .pro-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pro-facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .pro-facts div:nth-child(n + 3) { padding-top: 22px; }
+}
+
+@media (max-width: 720px) {
+  .pro-intro { padding-top: 128px; }
+  .pro-links a { grid-template-columns: minmax(0, 1fr) 18px; gap: 6px 14px; }
+  .pro-links-host { grid-column: 1; grid-row: 2; white-space: normal; }
+  .pro-links .arrow { grid-column: 2; grid-row: 1; }
+}
